@@ -8,7 +8,7 @@
       "has": [
         {
           "type": "host",
-          "value": "padarias\\.santinidigital\\.com\\.br"
+          "value": "padarias.santinidigital.com.br"
         }
       ],
       "destination": "/:path*"
@@ -18,7 +18,7 @@
       "has": [
         {
           "type": "host",
-          "value": "www\\.santinidigital\\.com\\.br"
+          "value": "www.santinidigital.com.br"
         }
       ],
       "destination": "/:path*"
@@ -28,20 +28,1060 @@
       "has": [
         {
           "type": "host",
-          "value": "(?<subdomain>[a-z0-9-]+)\\.santinidigital\\.com\\.br"
+          "value": "olivetanos.santinidigital.com.br"
         }
       ],
-      "destination": "/:subdomain/index.html"
+      "destination": "/olivetanos/index.html"
     },
     {
       "source": "/:path*",
       "has": [
         {
           "type": "host",
-          "value": "(?<subdomain>[a-z0-9-]+)\\.santinidigital\\.com\\.br"
+          "value": "olivetanos.santinidigital.com.br"
         }
       ],
-      "destination": "/:subdomain/:path*"
+      "destination": "/olivetanos/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "melissa.santinidigital.com.br"
+        }
+      ],
+      "destination": "/melissa/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "melissa.santinidigital.com.br"
+        }
+      ],
+      "destination": "/melissa/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "internacional.santinidigital.com.br"
+        }
+      ],
+      "destination": "/internacional/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "internacional.santinidigital.com.br"
+        }
+      ],
+      "destination": "/internacional/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "giselle.santinidigital.com.br"
+        }
+      ],
+      "destination": "/giselle/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "giselle.santinidigital.com.br"
+        }
+      ],
+      "destination": "/giselle/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "santamonica.santinidigital.com.br"
+        }
+      ],
+      "destination": "/santamonica/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "santamonica.santinidigital.com.br"
+        }
+      ],
+      "destination": "/santamonica/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "mix.santinidigital.com.br"
+        }
+      ],
+      "destination": "/mix/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "mix.santinidigital.com.br"
+        }
+      ],
+      "destination": "/mix/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "bethmania.santinidigital.com.br"
+        }
+      ],
+      "destination": "/bethmania/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "bethmania.santinidigital.com.br"
+        }
+      ],
+      "destination": "/bethmania/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "imperial.santinidigital.com.br"
+        }
+      ],
+      "destination": "/imperial/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "imperial.santinidigital.com.br"
+        }
+      ],
+      "destination": "/imperial/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "jardimsamara.santinidigital.com.br"
+        }
+      ],
+      "destination": "/jardimsamara/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "jardimsamara.santinidigital.com.br"
+        }
+      ],
+      "destination": "/jardimsamara/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "ofidalgo.santinidigital.com.br"
+        }
+      ],
+      "destination": "/ofidalgo/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "ofidalgo.santinidigital.com.br"
+        }
+      ],
+      "destination": "/ofidalgo/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "flordobairro.santinidigital.com.br"
+        }
+      ],
+      "destination": "/flordobairro/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "flordobairro.santinidigital.com.br"
+        }
+      ],
+      "destination": "/flordobairro/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "arteepao.santinidigital.com.br"
+        }
+      ],
+      "destination": "/arteepao/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "arteepao.santinidigital.com.br"
+        }
+      ],
+      "destination": "/arteepao/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "okinawa.santinidigital.com.br"
+        }
+      ],
+      "destination": "/okinawa/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "okinawa.santinidigital.com.br"
+        }
+      ],
+      "destination": "/okinawa/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "flordelirio.santinidigital.com.br"
+        }
+      ],
+      "destination": "/flordelirio/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "flordelirio.santinidigital.com.br"
+        }
+      ],
+      "destination": "/flordelirio/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "apice.santinidigital.com.br"
+        }
+      ],
+      "destination": "/apice/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "apice.santinidigital.com.br"
+        }
+      ],
+      "destination": "/apice/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "jandaia.santinidigital.com.br"
+        }
+      ],
+      "destination": "/jandaia/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "jandaia.santinidigital.com.br"
+        }
+      ],
+      "destination": "/jandaia/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "eliana.santinidigital.com.br"
+        }
+      ],
+      "destination": "/eliana/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "eliana.santinidigital.com.br"
+        }
+      ],
+      "destination": "/eliana/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "vitoria.santinidigital.com.br"
+        }
+      ],
+      "destination": "/vitoria/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "vitoria.santinidigital.com.br"
+        }
+      ],
+      "destination": "/vitoria/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "espacial.santinidigital.com.br"
+        }
+      ],
+      "destination": "/espacial/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "espacial.santinidigital.com.br"
+        }
+      ],
+      "destination": "/espacial/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "bellamassa.santinidigital.com.br"
+        }
+      ],
+      "destination": "/bellamassa/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "bellamassa.santinidigital.com.br"
+        }
+      ],
+      "destination": "/bellamassa/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "dfofinhos.santinidigital.com.br"
+        }
+      ],
+      "destination": "/dfofinhos/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "dfofinhos.santinidigital.com.br"
+        }
+      ],
+      "destination": "/dfofinhos/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "novaesperanca.santinidigital.com.br"
+        }
+      ],
+      "destination": "/novaesperanca/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "novaesperanca.santinidigital.com.br"
+        }
+      ],
+      "destination": "/novaesperanca/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "brilhante.santinidigital.com.br"
+        }
+      ],
+      "destination": "/brilhante/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "brilhante.santinidigital.com.br"
+        }
+      ],
+      "destination": "/brilhante/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "delicia.santinidigital.com.br"
+        }
+      ],
+      "destination": "/delicia/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "delicia.santinidigital.com.br"
+        }
+      ],
+      "destination": "/delicia/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "saintlouis.santinidigital.com.br"
+        }
+      ],
+      "destination": "/saintlouis/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "saintlouis.santinidigital.com.br"
+        }
+      ],
+      "destination": "/saintlouis/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "portadelrei.santinidigital.com.br"
+        }
+      ],
+      "destination": "/portadelrei/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "portadelrei.santinidigital.com.br"
+        }
+      ],
+      "destination": "/portadelrei/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "melnaboca.santinidigital.com.br"
+        }
+      ],
+      "destination": "/melnaboca/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "melnaboca.santinidigital.com.br"
+        }
+      ],
+      "destination": "/melnaboca/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "estrelaguia.santinidigital.com.br"
+        }
+      ],
+      "destination": "/estrelaguia/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "estrelaguia.santinidigital.com.br"
+        }
+      ],
+      "destination": "/estrelaguia/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "jdmarina.santinidigital.com.br"
+        }
+      ],
+      "destination": "/jdmarina/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "jdmarina.santinidigital.com.br"
+        }
+      ],
+      "destination": "/jdmarina/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "rosadoporto.santinidigital.com.br"
+        }
+      ],
+      "destination": "/rosadoporto/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "rosadoporto.santinidigital.com.br"
+        }
+      ],
+      "destination": "/rosadoporto/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "casasaofrancisco.santinidigital.com.br"
+        }
+      ],
+      "destination": "/casasaofrancisco/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "casasaofrancisco.santinidigital.com.br"
+        }
+      ],
+      "destination": "/casasaofrancisco/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "cantodoburiti.santinidigital.com.br"
+        }
+      ],
+      "destination": "/cantodoburiti/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "cantodoburiti.santinidigital.com.br"
+        }
+      ],
+      "destination": "/cantodoburiti/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "rainhadapatriarca.santinidigital.com.br"
+        }
+      ],
+      "destination": "/rainhadapatriarca/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "rainhadapatriarca.santinidigital.com.br"
+        }
+      ],
+      "destination": "/rainhadapatriarca/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "padariazl.santinidigital.com.br"
+        }
+      ],
+      "destination": "/padariazl/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "padariazl.santinidigital.com.br"
+        }
+      ],
+      "destination": "/padariazl/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "principedavi.santinidigital.com.br"
+        }
+      ],
+      "destination": "/principedavi/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "principedavi.santinidigital.com.br"
+        }
+      ],
+      "destination": "/principedavi/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "novaimperador.santinidigital.com.br"
+        }
+      ],
+      "destination": "/novaimperador/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "novaimperador.santinidigital.com.br"
+        }
+      ],
+      "destination": "/novaimperador/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "rainhadomaringa.santinidigital.com.br"
+        }
+      ],
+      "destination": "/rainhadomaringa/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "rainhadomaringa.santinidigital.com.br"
+        }
+      ],
+      "destination": "/rainhadomaringa/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "saopedro.santinidigital.com.br"
+        }
+      ],
+      "destination": "/saopedro/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "saopedro.santinidigital.com.br"
+        }
+      ],
+      "destination": "/saopedro/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "pontodopao.santinidigital.com.br"
+        }
+      ],
+      "destination": "/pontodopao/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "pontodopao.santinidigital.com.br"
+        }
+      ],
+      "destination": "/pontodopao/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "artpao.santinidigital.com.br"
+        }
+      ],
+      "destination": "/artpao/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "artpao.santinidigital.com.br"
+        }
+      ],
+      "destination": "/artpao/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "confeitariaborges.santinidigital.com.br"
+        }
+      ],
+      "destination": "/confeitariaborges/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "confeitariaborges.santinidigital.com.br"
+        }
+      ],
+      "destination": "/confeitariaborges/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "novaastral.santinidigital.com.br"
+        }
+      ],
+      "destination": "/novaastral/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "novaastral.santinidigital.com.br"
+        }
+      ],
+      "destination": "/novaastral/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "alzira.santinidigital.com.br"
+        }
+      ],
+      "destination": "/alzira/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "alzira.santinidigital.com.br"
+        }
+      ],
+      "destination": "/alzira/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "santamaria.santinidigital.com.br"
+        }
+      ],
+      "destination": "/santamaria/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "santamaria.santinidigital.com.br"
+        }
+      ],
+      "destination": "/santamaria/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "novamanchester.santinidigital.com.br"
+        }
+      ],
+      "destination": "/novamanchester/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "novamanchester.santinidigital.com.br"
+        }
+      ],
+      "destination": "/novamanchester/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "tradicao.santinidigital.com.br"
+        }
+      ],
+      "destination": "/tradicao/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "tradicao.santinidigital.com.br"
+        }
+      ],
+      "destination": "/tradicao/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "paodouro.santinidigital.com.br"
+        }
+      ],
+      "destination": "/paodouro/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "paodouro.santinidigital.com.br"
+        }
+      ],
+      "destination": "/paodouro/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "vienafama.santinidigital.com.br"
+        }
+      ],
+      "destination": "/vienafama/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "vienafama.santinidigital.com.br"
+        }
+      ],
+      "destination": "/vienafama/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "catarina.santinidigital.com.br"
+        }
+      ],
+      "destination": "/catarina/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "catarina.santinidigital.com.br"
+        }
+      ],
+      "destination": "/catarina/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "novariodouro.santinidigital.com.br"
+        }
+      ],
+      "destination": "/novariodouro/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "novariodouro.santinidigital.com.br"
+        }
+      ],
+      "destination": "/novariodouro/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "padariadasflores.santinidigital.com.br"
+        }
+      ],
+      "destination": "/padariadasflores/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "padariadasflores.santinidigital.com.br"
+        }
+      ],
+      "destination": "/padariadasflores/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "pontodospaes.santinidigital.com.br"
+        }
+      ],
+      "destination": "/pontodospaes/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "pontodospaes.santinidigital.com.br"
+        }
+      ],
+      "destination": "/pontodospaes/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "fantasia.santinidigital.com.br"
+        }
+      ],
+      "destination": "/fantasia/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "fantasia.santinidigital.com.br"
+        }
+      ],
+      "destination": "/fantasia/:path*"
     }
   ]
 }

@@ -68,8 +68,8 @@ Para ativar todos os subdomínios de uma só vez:
 | **Padaria Rosa Do Porto** | `rosadoporto.santinidigital.com.br` | `/rosadoporto/` |
 | **Casa São Francisco Padaria** | `casasaofrancisco.santinidigital.com.br` | `/casasaofrancisco/` |
 | **Padaria Canto do Buriti** | `cantodoburiti.santinidigital.com.br` | `/cantodoburiti/` |
-| **Padaria Rainha da Patriarca | Pães e Doces** | `padaria-rainha-da-patriarca-paes-e-doces.santinidigital.com.br` | `/padaria-rainha-da-patriarca-paes-e-doces/` |
-| **Padaria** | `padariazl.santinidigital.com.br` | `/padariazl/` |
+| **Padaria Rainha da Patriarca | Pães e Doces** | `rainhadapatriarca.santinidigital.com.br` | `/rainhadapatriarca/` |
+| **Padaria** | `padaria.santinidigital.com.br` | `/padaria/` |
 | **Padaria Principe Davi** | `principedavi.santinidigital.com.br` | `/principedavi/` |
 | **Panificadora Nova Imperador do Trigo** | `novaimperador.santinidigital.com.br` | `/novaimperador/` |
 | **Padaria rainha do Maringá** | `rainhadomaringa.santinidigital.com.br` | `/rainhadomaringa/` |
@@ -91,4 +91,4 @@ Para ativar todos os subdomínios de uma só vez:
 | **Padaria das Flores** | `padariadasflores.santinidigital.com.br` | `/padariadasflores/` |
 | **Ponto dos pães** | `pontodospaes.santinidigital.com.br` | `/pontodospaes/` |
 | **Padaria Fantasia** | `fantasia.santinidigital.com.br` | `/fantasia/` |
-| **Panificadora Olivetanos | Casa de Pães e Doces** | `panificadora-olivetanos-casa-de-paes-e-doces.santinidigital.com.br` | `/panificadora-olivetanos-casa-de-paes-e-doces/` |
+| **Panificadora Olivetanos | Casa de Pães e Doces** | `olivetanos.santinidigital.com.br` | `/olivetanos/` |

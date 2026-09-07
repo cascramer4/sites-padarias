@@ -4,6 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vitrine de Sites de Padarias | Santini Digital</title>
+    <script>
+        (function() {
+            try {
+                var host = window.location.hostname;
+                var match = host.match(/^([a-z0-9-]+)\.santinidigital\.com\.br$/i);
+                if (match) {
+                    var sub = match[1].toLowerCase();
+                    if (sub !== 'www' && sub !== 'padarias') {
+                        var path = window.location.pathname;
+                        if (!path.startsWith('/' + sub)) {
+                            window.location.replace('/' + sub + '/' + window.location.search + window.location.hash);
+                        }
+                    }
+                }
+            } catch(e) {}
+        })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">

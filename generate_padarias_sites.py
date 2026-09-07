@@ -27,9 +27,9 @@ def create_landing_page(bakery):
     maps_url = bakery.get('maps_url', 'https://maps.google.com')
     photo = bakery.get('photo', '')
     
-    # Phone placeholder / format
-    phone_display = "(11) 98765-4321"
-    phone_digits = "5511987654321"
+    # Phone placeholder / format (Número fictício de exemplo para demonstração)
+    phone_display = "(11) 99999-9999"
+    phone_digits = "5511999999999"
     whatsapp_msg = f"Olá! Gostaria de fazer um pedido / encomenda na {name}."
     whatsapp_url = f"https://wa.me/{phone_digits}?text={whatsapp_msg.replace(' ', '%20')}"
 

@@ -8,7 +8,37 @@
       "has": [
         {
           "type": "host",
-          "value": "^(?!www$|padarias$)(?<subdomain>[a-z0-9-]+)\\.santinidigital\\.com\\.br$"
+          "value": "padarias\\.santinidigital\\.com\\.br"
+        }
+      ],
+      "destination": "/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www\\.santinidigital\\.com\\.br"
+        }
+      ],
+      "destination": "/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "(?<subdomain>[a-z0-9-]+)\\.santinidigital\\.com\\.br"
+        }
+      ],
+      "destination": "/:subdomain/index.html"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "(?<subdomain>[a-z0-9-]+)\\.santinidigital\\.com\\.br"
         }
       ],
       "destination": "/:subdomain/:path*"

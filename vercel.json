@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^(?!www$|padarias$)(?<subdomain>[a-z0-9-]+)\\.santinidigital\\.com\\.br$"
+        }
+      ],
+      "destination": "/:subdomain/:path*"
+    }
+  ]
+}

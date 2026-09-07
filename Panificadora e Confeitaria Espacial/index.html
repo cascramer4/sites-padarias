@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panificadora e Confeitaria Espacial | Pães de Fermentação Natural, Café Colonial & Encomendas</title>
+  <meta name="description" content="Bem-vindo à Panificadora e Confeitaria Espacial. Pães de fermentação natural, buffet de café da manhã colonial, encomendas de bolos artesanais e kit festa para empresas em Vila Ré / Patriarca. Faça seu pedido pelo WhatsApp!">
+  <meta name="keywords" content="Panificadora e Confeitaria Espacial, padaria artesanal, fermentação natural, café colonial, bolo sob encomenda, kit festa empresas, Vila Ré / Patriarca, São Paulo">
+  <meta name="robots" content="index, follow">
+
+  <!-- Google Fonts: Playfair Display + Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. DESIGN SYSTEM - PALETA ACOLHEDORA DE MARROM, DOURADO E BRANCO
+       ========================================================================== */
+    :root {
+      --brown-900: #26160f;
+      --brown-800: #382116;
+      --brown-700: #4a2d1f;
+      --brown-600: #623d2b;
+      --brown-500: #7d4f38;
+      
+      --gold-600: #9e6f24;
+      --gold-500: #c28b34;
+      --gold-400: #dfa84a;
+      --gold-300: #f1c775;
+      --gold-100: #fcf4e4;
+
+      --cream-50: #fbf8f3;
+      --cream-100: #f5efe6;
+      --cream-200: #eae0d0;
+
+      --white: #ffffff;
+      --text-main: #2d2019;
+      --text-muted: #6b584e;
+      --text-light: #9c8a7f;
+
+      --whatsapp-green: #25d366;
+      --whatsapp-dark: #128c7e;
+
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 2px 8px rgba(44, 24, 16, 0.06);
+      --shadow-md: 0 8px 24px rgba(44, 24, 16, 0.09);
+      --shadow-lg: 0 16px 40px rgba(44, 24, 16, 0.14);
+      --shadow-gold: 0 8px 24px rgba(194, 139, 52, 0.28);
+
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* CSS Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--cream-50);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ==========================================================================
+       2. COMPONENTES VISUAIS & TIPOGRAFIA
+       ========================================================================== */
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold-600);
+      background: var(--gold-100);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 12px;
+      border: 1px solid rgba(194, 139, 52, 0.25);
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: var(--brown-900);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 40px auto;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-400), var(--gold-500));
+      color: var(--white);
+      box-shadow: var(--shadow-gold);
+    }
+
+    .btn-gold:hover {
+      background: linear-gradient(135deg, var(--gold-500), var(--gold-600));
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(194, 139, 52, 0.38);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--brown-800);
+      border: 2px solid var(--brown-700);
+    }
+
+    .btn-outline:hover {
+      background: var(--brown-800);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      background: var(--whatsapp-green);
+      color: var(--white);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.32);
+    }
+
+    .btn-whatsapp:hover {
+      background: #1ebc59;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(37, 211, 102, 0.45);
+    }
+
+    /* ==========================================================================
+       3. TOPBAR & HEADER NAVEGAÇÃO
+       ========================================================================== */
+    .topbar {
+      background: var(--brown-900);
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.8rem;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .topbar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .topbar-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--gold-300);
+      font-weight: 600;
+    }
+
+    .header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+      border-bottom: 1px solid var(--cream-200);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, var(--brown-800), var(--gold-600));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-100);
+      font-size: 1.4rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .logo-text h1 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--brown-900);
+      line-height: 1.1;
+      font-weight: 800;
+    }
+
+    .logo-text span {
+      font-size: 0.72rem;
+      color: var(--gold-600);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .nav-link:hover {
+      color: var(--gold-500);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      color: var(--brown-900);
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       4. HERO SECTION - BOAS VINDAS & PROVA SOCIAL
+       ========================================================================== */
+    .hero {
+      position: relative;
+      padding: 70px 0 60px 0;
+      background: radial-gradient(circle at top right, var(--gold-100), transparent 60%),
+                  linear-gradient(180deg, var(--cream-50) 0%, var(--cream-100) 100%);
+      border-bottom: 1px solid var(--cream-200);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 600px;
+    }
+
+    .rating-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--cream-200);
+      margin-bottom: 18px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--brown-800);
+    }
+
+    .stars {
+      color: #f59e0b;
+      letter-spacing: 2px;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      line-height: 1.15;
+      color: var(--brown-900);
+      margin-bottom: 18px;
+      font-weight: 800;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-500);
+    }
+
+    .hero-desc {
+      font-size: 1.08rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+
+    .hero-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-top: 1px solid var(--cream-200);
+      padding-top: 20px;
+    }
+
+    .hero-feat-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .hero-feat-item span.icon {
+      color: var(--gold-500);
+      font-size: 1.1rem;
+    }
+
+    .hero-image-box {
+      position: relative;
+    }
+
+    .hero-main-img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      border: 4px solid var(--white);
+    }
+
+    .hero-badge-float {
+      position: absolute;
+      bottom: -15px;
+      left: -15px;
+      background: var(--brown-900);
+      color: var(--white);
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      border: 2px solid var(--gold-500);
+      max-width: 240px;
+    }
+
+    .hero-badge-float strong {
+      display: block;
+      color: var(--gold-400);
+      font-size: 1.1rem;
+      font-family: var(--font-serif);
+    }
+
+    .hero-badge-float p {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-top: 2px;
+    }
+
+    /* ==========================================================================
+       5. 4 PILARES DE DESTAQUE
+       ========================================================================== */
+    .highlights {
+      padding: 80px 0;
+      background: var(--white);
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .highlight-card {
+      background: var(--cream-50);
+      border-radius: var(--radius-md);
+      padding: 26px 22px;
+      border: 1px solid var(--cream-200);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .highlight-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--gold-400);
+      background: var(--white);
+    }
+
+    .highlight-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold-400), var(--gold-600));
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .highlight-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-sm);
+      background: var(--gold-100);
+      color: var(--gold-600);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--brown-900);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .card-link {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--gold-600);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .card-link:hover {
+      color: var(--brown-900);
+      gap: 8px;
+    }
+
+    /* ==========================================================================
+       6. SEÇÃO DETALHADA: OS 4 DESTAQUES PRINCIPAIS
+       ========================================================================== */
+    .pillar-section {
+      padding: 80px 0;
+      border-top: 1px solid var(--cream-200);
+    }
+
+    .pillar-section:nth-child(even) {
+      background: var(--cream-100);
+    }
+
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .pillar-grid.reverse {
+      direction: rtl;
+    }
+
+    .pillar-grid.reverse > * {
+      direction: ltr;
+    }
+
+    .pillar-img-box {
+      position: relative;
+    }
+
+    .pillar-img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 3px solid var(--white);
+    }
+
+    .pillar-content {
+      max-width: 520px;
+    }
+
+    .pillar-title {
+      font-family: var(--font-serif);
+      font-size: 2.1rem;
+      color: var(--brown-900);
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+
+    .pillar-desc {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 22px;
+    }
+
+    .bullet-list {
+      list-style: none;
+      margin-bottom: 26px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .bullet-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .bullet-icon {
+      color: var(--gold-500);
+      font-weight: 800;
+      font-size: 1rem;
+      line-height: 1.3;
+    }
+
+    /* ==========================================================================
+       7. CARDÁPIO RÁPIDO & ITENS POPULARES
+       ========================================================================== */
+    .menu-section {
+      padding: 80px 0;
+      background: var(--white);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .menu-item {
+      background: var(--cream-50);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--cream-200);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--gold-400);
+    }
+
+    .menu-item-img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+
+    .menu-item-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+    }
+
+    .menu-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .menu-item-name {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--brown-900);
+      font-weight: 700;
+    }
+
+    .menu-item-price {
+      font-weight: 800;
+      color: var(--gold-600);
+      font-size: 1rem;
+    }
+
+    .menu-item-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .menu-order-btn {
+      width: 100%;
+      padding: 10px;
+      background: var(--brown-800);
+      color: var(--white);
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .menu-order-btn:hover {
+      background: var(--gold-500);
+    }
+
+    /* ==========================================================================
+       8. SEÇÃO HORÁRIOS & LOCALIZAÇÃO NO MAPA
+       ========================================================================== */
+    .info-section {
+      padding: 80px 0;
+      background: linear-gradient(180deg, var(--cream-100) 0%, var(--cream-50) 100%);
+      border-top: 1px solid var(--cream-200);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+
+    .info-box {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 36px 30px;
+      border: 1px solid var(--cream-200);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .info-box h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--brown-900);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 0.9rem;
+    }
+
+    .hours-table tr {
+      border-bottom: 1px solid var(--cream-100);
+    }
+
+    .hours-table td {
+      padding: 12px 0;
+    }
+
+    .hours-table td.day {
+      font-weight: 600;
+      color: var(--brown-800);
+    }
+
+    .hours-table td.time {
+      text-align: right;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .hours-badge-open {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: rgba(37, 211, 102, 0.15);
+      color: #16a34a;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-left: 8px;
+    }
+
+    .address-details {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .map-preview-box {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--cream-200);
+      height: 190px;
+      position: relative;
+      border: 1px solid var(--cream-200);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      background-image: radial-gradient(#d6c9b8 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+
+    .map-preview-box i {
+      font-size: 2.2rem;
+      color: var(--gold-500);
+      margin-bottom: 8px;
+    }
+
+    /* ==========================================================================
+       9. AVALIAÇÕES GOOGLE & PROVA SOCIAL
+       ========================================================================== */
+    .reviews-section {
+      padding: 70px 0;
+      background: var(--brown-900);
+      color: var(--white);
+    }
+
+    .reviews-section .section-title {
+      color: var(--white);
+    }
+
+    .reviews-section .section-subtitle {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .review-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      padding: 26px;
+      backdrop-filter: blur(8px);
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .review-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-400), var(--gold-600));
+      color: var(--brown-900);
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .review-author {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--white);
+    }
+
+    .review-source {
+      font-size: 0.72rem;
+      color: var(--gold-300);
+    }
+
+    .review-text {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       10. CTA FINAL & FOOTER
+       ========================================================================== */
+    .cta-banner {
+      padding: 70px 0;
+      background: linear-gradient(135deg, var(--brown-800), var(--brown-900));
+      color: var(--white);
+      text-align: center;
+      position: relative;
+    }
+
+    .cta-banner h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      color: var(--gold-300);
+      margin-bottom: 14px;
+    }
+
+    .cta-banner p {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.82);
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+    }
+
+    .footer {
+      background: #190e09;
+      color: rgba(255, 255, 255, 0.65);
+      padding: 45px 0 25px 0;
+      font-size: 0.82rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 35px;
+    }
+
+    .footer-col h4 {
+      color: var(--white);
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-400);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-santini {
+      color: var(--gold-400);
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       11. BOTÃO FLUTUANTE DE WHATSAPP
+       ========================================================================== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--whatsapp-green);
+      color: var(--white);
+      padding: 12px 20px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.45);
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: var(--transition);
+      animation: pulse-wa 2.5s infinite;
+    }
+
+    .whatsapp-float:hover {
+      background: #1ebc59;
+      transform: scale(1.05);
+      color: var(--white);
+    }
+
+    .whatsapp-icon {
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+    }
+
+    @keyframes pulse-wa {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+      }
+      70% {
+        box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    /* ==========================================================================
+       12. RESPONSIVIDADE (MOBILE-FIRST BREAKPOINTS)
+       ========================================================================== */
+    @media (max-width: 992px) {
+      .hero-grid, .pillar-grid, .pillar-grid.reverse, .info-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .highlights-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .menu-grid, .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-title {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: var(--shadow-md);
+        border-bottom: 1px solid var(--cream-200);
+      }
+      .nav-menu.active {
+        display: flex;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .highlights-grid, .menu-grid, .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        padding: 40px 0;
+      }
+      .hero-title {
+        font-size: 2rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .whatsapp-float span.text {
+        display: none;
+      }
+      .whatsapp-float {
+        padding: 14px;
+        border-radius: 50%;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="topbar">
+    <div class="container topbar-content">
+      <div class="topbar-badge">
+        <span>🥖</span>
+        <span>Pães quentes saindo a toda hora em Vila Ré / Patriarca</span>
+      </div>
+      <div>
+        <span>Fecha 22:20</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="#inicio" class="logo">
+        <div class="logo-icon">🍞</div>
+        <div class="logo-text">
+          <h1>Panificadora e Confeitaria Espacial</h1>
+          <span>Panificadora Artesanal</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#destaques" class="nav-link">Destaques</a></li>
+        <li><a href="#fermentacao" class="nav-link">Pães Artesanais</a></li>
+        <li><a href="#cafe-colonial" class="nav-link">Café Colonial</a></li>
+        <li><a href="#encomendas" class="nav-link">Encomendas</a></li>
+        <li><a href="#kit-festa" class="nav-link">Kit Festa Empresas</a></li>
+        <li><a href="#horarios" class="nav-link">Horários & Local</a></li>
+      </ul>
+
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="https://wa.me/5511987654321?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20/%20encomenda%20na%20Panificadora%20e%20Confeitaria%20Espacial." target="_blank" rel="noopener" class="btn btn-gold" style="padding: 10px 20px; font-size: 0.85rem;">
+          <span>Fazer Pedido</span>
+        </a>
+        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Abrir Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="inicio">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="rating-chip">
+          <span class="stars">★★★★★</span>
+          <span>4.3 (1047 avaliações no Google)</span>
+        </div>
+        <h2 class="hero-title">O aroma e a tradição do pão artesanal feito com <em>fermentação natural</em>.</h2>
+        <p class="hero-desc">
+          Na <strong>Panificadora e Confeitaria Espacial</strong>, combinamos farinhas selecionadas, fermentação lenta e receitas tradicionais para proporcionar a melhor experiência gastronômica de Vila Ré / Patriarca. Do café colonial às encomendas de bolos e kits corporativos.
+        </p>
+        <div class="hero-actions">
+          <a href="https://wa.me/5511987654321?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20/%20encomenda%20na%20Panificadora%20e%20Confeitaria%20Espacial." target="_blank" rel="noopener" class="btn btn-whatsapp">
+            <span>Fazer Pedido / Encomenda</span>
+          </a>
+          <a href="#cardapio" class="btn btn-outline">
+            <span>Ver Cardápio</span>
+          </a>
+        </div>
+        <div class="hero-features">
+          <div class="hero-feat-item"><span class="icon">✓</span> Fermentação Natural 24h</div>
+          <div class="hero-feat-item"><span class="icon">✓</span> Café Colonial Diário</div>
+          <div class="hero-feat-item"><span class="icon">✓</span> Kits para Empresas</div>
+        </div>
+      </div>
+
+      <div class="hero-image-box">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Pães artesanais na Panificadora e Confeitaria Espacial" class="hero-main-img" loading="eager">
+        <div class="hero-badge-float">
+          <strong>Fornadas Quentes</strong>
+          <p>Pão quentinho a cada 30 minutos na sua mesa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlights Overview Cards -->
+  <section class="highlights" id="destaques">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag">Nossos Pilares</span>
+        <h2 class="section-title">Excelência Artesanal em Cada Detalhe</h2>
+        <p class="section-subtitle">Conheça os quatro grandes diferenciais que fazem da Panificadora e Confeitaria Espacial a padaria preferida da nossa região.</p>
+      </div>
+
+      <div class="highlights-grid">
+        <!-- Card 1 -->
+        <div class="highlight-card">
+          <div>
+            <div class="card-icon-wrap">🥖</div>
+            <h3 class="card-title">Fermentação Natural</h3>
+            <p class="card-desc">Pães rústicos, baguetes e ciabattas com fermento levain próprio. Digestão leve, casca dourada e miolo aerado.</p>
+          </div>
+          <a href="#fermentacao" class="card-link">Saiba mais &rarr;</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="highlight-card">
+          <div>
+            <div class="card-icon-wrap">☕</div>
+            <h3 class="card-title">Café da Manhã Colonial</h3>
+            <p class="card-desc">Buffet colonial completo com pães, frios, ovos mexidos, sucos naturais, bolos caseiros e cappuccinos cremosos.</p>
+          </div>
+          <a href="#cafe-colonial" class="card-link">Conheça o buffet &rarr;</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="highlight-card">
+          <div>
+            <div class="card-icon-wrap">🎂</div>
+            <h3 class="card-title">Bolos & Doces Finos</h3>
+            <p class="card-desc">Encomendas especiais de bolos recheados, tortas finas, carolinas e sobremesas que marcam qualquer comemoração.</p>
+          </div>
+          <a href="#encomendas" class="card-link">Ver encomendas &rarr;</a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="highlight-card">
+          <div>
+            <div class="card-icon-wrap">🏢</div>
+            <h3 class="card-title">Kit Festa para Empresas</h3>
+            <p class="card-desc">Coffee breaks completos e caixas corporativas com mini lanches, salgados assados e docinhos para eventos B2B.</p>
+          </div>
+          <a href="#kit-festa" class="card-link">Orçamento corporativo &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Pillar 1: Fermentação Natural -->
+  <section class="pillar-section" id="fermentacao">
+    <div class="container pillar-grid">
+      <div class="pillar-img-box">
+        <img src="https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?auto=format&fit=crop&w=700&q=80" alt="Pão de Fermentação Natural Sourdough" class="pillar-img" loading="lazy">
+      </div>
+      <div class="pillar-content">
+        <span class="section-tag">Tradição & Saúde</span>
+        <h2 class="pillar-title">Pães de Fermentação Natural (Sourdough)</h2>
+        <p class="pillar-desc">
+          Resgatamos o método ancestral de panificação. Nossos pães levam apenas quatro ingredientes essenciais: farinha especial, água purificada, sal e o nosso levain (fermento vivo cultivado diariamente).
+        </p>
+        <ul class="bullet-list">
+          <li class="bullet-item"><span class="bullet-icon">✓</span> <strong>Fermentação Lenta (24h a 48h):</strong> Reduz o índice glicêmico e facilita a digestão.</li>
+          <li class="bullet-item"><span class="bullet-icon">✓</span> <strong>Sem Aditivos Químicos:</strong> 100% livre de melhoradores artificiais e conservantes.</li>
+          <li class="bullet-item"><span class="bullet-icon">✓</span> <strong>Variedade de Sabores:</strong> Pão rústico clássico, azeitonas pretas, nozes com gorgonzola, multigrãos e focaccia com alecrim.</li>
+        </ul>
+        <a href="https://wa.me/5511987654321?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20/%20encomenda%20na%20Panificadora%20e%20Confeitaria%20Espacial." target="_blank" rel="noopener" class="btn btn-gold">
+          <span>Reservar Fornada do Dia</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Pillar 2: Café da Manhã Colonial -->
+  <section class="pillar-section" id="cafe-colonial">
+    <div class="container pillar-grid reverse">
+      <div class="pillar-img-box">
+        <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=700&q=80" alt="Café da Manhã Colonial Farto" class="pillar-img" loading="lazy">
+      </div>
+      <div class="pillar-content">
+        <span class="section-tag">Experiência Gastronômica</span>
+        <h2 class="pillar-title">Café da Manhã Colonial Completo</h2>
+        <p class="pillar-desc">
+          Comece o seu dia com a abundância e o sabor de uma mesa farta. Nosso café colonial é preparado todos os dias para você saborear com tranquilidade com amigos e família.
+        </p>
+        <ul class="bullet-list">
+          <li class="bullet-item"><span class="bullet-icon">✓</span> <strong>Mesa de Pães Quentes:</strong> Pão francês crocante, pão na chapa com requeijão tostado, croissants e pão de queijo mineiro.</li>
+          <li class="bullet-item"><span class="bullet-icon">✓</span> <strong>Estação Quente & Frios:</strong> Ovos mexidos cremosos, bacon crocante, presunto parma, queijo meia cura e frutas frescas da estação.</li>
+          <li class="bullet-item"><span class="bullet-icon">✓</span> <strong>Cafeteria Especial:</strong> Grãos selecionados moídos na hora, espressos, cappuccinos cremosos, chocolate suíço e chás especiais.</li>
+        </ul>
+        <a href="https://wa.me/5511987654321?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20/%20encomenda%20na%20Panificadora%20e%20Confeitaria%20Espacial." target="_blank" rel="noopener" class="btn btn-gold">
+          <span>Reservar Mesa para Café</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Pillar 3: Encomendas de Bolos & Doces -->
+  <section class="pillar-section" id="encomendas">
+    <div class="container pillar-grid">
+      <div class="pillar-img-box">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80" alt="Bolos confeitados artesanais" class="pillar-img" loading="lazy">
+      </div>
+      <div class="pillar-content">
+        <span class="section-tag">Confeitaria Fina</span>
+        <h2 class="pillar-title">Encomendas de Bolos & Doces Artesanais</h2>
+        <p class="pillar-desc">
+          Transforme datas especiais em recordações inesquecíveis. Nossa equipe de confeitaria produz bolos sob encomenda e tortas artesanais com os melhores ingredientes.
+        </p>
+        <ul class="bullet-list">
+          <li class="bullet-item"><span class="bullet-icon">✓</span> <strong>Bolos Personalizados:</strong> Ninho com morangos frescos, brigadeiro belga, red velvet, nozes crocantes e frutas vermelhas.</li>
+          <li class="bullet-item"><span class="bullet-icon">✓</span> <strong>Doces para Festas:</strong> Brigadeiros gourmet, beijinho, camafeu de nozes, mini carolinas e torteletes de limão e maçã.</li>
+          <li class="bullet-item"><span class="bullet-icon">✓</span> <strong>Entrega com Hora Marcada:</strong> Embalagens térmicas seguras para transporte ou retirada direta no balcão.</li>
+        </ul>
+        <a href="https://wa.me/5511987654321?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20/%20encomenda%20na%20Panificadora%20e%20Confeitaria%20Espacial." target="_blank" rel="noopener" class="btn btn-gold">
+          <span>Solicitar Catálogo de Bolos</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Pillar 4: Kit Festa para Empresas (B2B) -->
+  <section class="pillar-section" id="kit-festa">
+    <div class="container pillar-grid reverse">
+      <div class="pillar-img-box">
+        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=700&q=80" alt="Kit festa e coffee break corporativo" class="pillar-img" loading="lazy">
+      </div>
+      <div class="pillar-content">
+        <span class="section-tag">Soluções Corporativas</span>
+        <h2 class="pillar-title">Kit Festa & Coffee Break para Empresas</h2>
+        <p class="pillar-desc">
+          Atendemos empresas, escritórios e consultorias com pontualidade britânica e faturamento flexível. Ideal para treinamentos, reuniões de diretoria e aniversariantes do mês.
+        </p>
+        <ul class="bullet-list">
+          <li class="bullet-item"><span class="bullet-icon">✓</span> <strong>Mini Sanduíches em Pães Especiais:</strong> Ciabatta com peito de peru e queijo brie, baguetinha de rosbife e wraps vegetarianos.</li>
+          <li class="bullet-item"><span class="bullet-icon">✓</span> <strong>Salgados Finos Assados e Fritos:</strong> Esfihas folhadas, quiches lorraine, empadas crocantes e coxinhas gourmet.</li>
+          <li class="bullet-item"><span class="bullet-icon">✓</span> <strong>Emissão de Nota Fiscal & Faturamento:</strong> Condições especiais para contratos recorrentes corporativos.</li>
+        </ul>
+        <a href="https://wa.me/5511987654321?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20/%20encomenda%20na%20Panificadora%20e%20Confeitaria%20Espacial." target="_blank" rel="noopener" class="btn btn-whatsapp">
+          <span>Pedir Orçamento B2B via WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cardápio / Quick Showcase -->
+  <section class="menu-section" id="cardapio">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag">Cardápio do Dia</span>
+        <h2 class="section-title">Os Mais Pedidos na Panificadora e Confeitaria Espacial</h2>
+        <p class="section-subtitle">Escolha os itens desejados e peça pelo WhatsApp para entrega rápida ou retirada.</p>
+      </div>
+
+      <div class="menu-grid">
+        <!-- Item 1 -->
+        <div class="menu-item">
+          <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=500&q=80" alt="Pão Rústico Sourdough" class="menu-item-img" loading="lazy">
+          <div class="menu-item-body">
+            <div>
+              <div class="menu-item-header">
+                <h4 class="menu-item-name">Pão Rústico Levain (700g)</h4>
+                <span class="menu-item-price">R$ 24,90</span>
+              </div>
+              <p class="menu-item-desc">Casca espessa e crocante, miolo com alvéolos abertos e sabor suavemente fermentado.</p>
+            </div>
+            <a href="https://wa.me/5511987654321?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20/%20encomenda%20na%20Panificadora%20e%20Confeitaria%20Espacial." target="_blank" rel="noopener" class="menu-order-btn">
+              <span>Pedir no WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="menu-item">
+          <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=500&q=80" alt="Croissant Francês Amanteigado" class="menu-item-img" loading="lazy">
+          <div class="menu-item-body">
+            <div>
+              <div class="menu-item-header">
+                <h4 class="menu-item-name">Croissant Tradicional Francês</h4>
+                <span class="menu-item-price">R$ 14,50</span>
+              </div>
+              <p class="menu-item-desc">Folhado com manteiga pura, leve, crocante por fora e macio por dentro.</p>
+            </div>
+            <a href="https://wa.me/5511987654321?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20/%20encomenda%20na%20Panificadora%20e%20Confeitaria%20Espacial." target="_blank" rel="noopener" class="menu-order-btn">
+              <span>Pedir no WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="menu-item">
+          <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=500&q=80" alt="Bolo Artesanal de Cenoura com Brigadeiro" class="menu-item-img" loading="lazy">
+          <div class="menu-item-body">
+            <div>
+              <div class="menu-item-header">
+                <h4 class="menu-item-name">Bolo Cenoura c/ Brigadeiro</h4>
+                <span class="menu-item-price">R$ 38,00</span>
+              </div>
+              <p class="menu-item-desc">Receita tradicional fofinha com generosa cobertura de brigadeiro caseiro cremoso.</p>
+            </div>
+            <a href="https://wa.me/5511987654321?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20/%20encomenda%20na%20Panificadora%20e%20Confeitaria%20Espacial." target="_blank" rel="noopener" class="menu-order-btn">
+              <span>Pedir no WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Horários e Endereço -->
+  <section class="info-section" id="horarios">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag">Visite-nos</span>
+        <h2 class="section-title">Horários de Funcionamento & Localização</h2>
+        <p class="section-subtitle">Estamos estrategicamente situados em Vila Ré / Patriarca, de portas abertas para receber você.</p>
+      </div>
+
+      <div class="info-grid">
+        <!-- Box 1: Horários -->
+        <div class="info-box">
+          <h3>
+            <span>🕒</span>
+            <span>Horários de Atendimento</span>
+            <span class="hours-badge-open">Aberto Hoje</span>
+          </h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;">
+            Pães frescos saindo da fornalha desde as primeiras horas da manhã.
+          </p>
+          <table class="hours-table">
+            <tr>
+              <td class="day">Segunda a Sexta-feira</td>
+              <td class="time">06:00 às 22:00</td>
+            </tr>
+            <tr>
+              <td class="day">Sábados</td>
+              <td class="time">06:00 às 22:00</td>
+            </tr>
+            <tr>
+              <td class="day">Domingos e Feriados</td>
+              <td class="time">06:30 às 21:30</td>
+            </tr>
+            <tr>
+              <td class="day">Buffet de Café Colonial</td>
+              <td class="time">Todos os dias: 06:30 às 11:30</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Box 2: Localização & Mapa -->
+        <div class="info-box">
+          <h3>
+            <span>📍</span>
+            <span>Onde Encontrar</span>
+          </h3>
+          <p class="address-details">
+            <strong>Panificadora e Confeitaria Espacial</strong><br>
+            R. Itinguçu, 370<br>
+            Vila Ré / Patriarca — São Paulo / SP<br>
+            <span style="display:inline-block; margin-top: 6px; font-weight: 700; color: var(--brown-800);">WhatsApp: (11) 98765-4321</span>
+          </p>
+
+          <div class="map-preview-box">
+            <i>🗺️</i>
+            <strong style="color: var(--brown-900); margin-bottom: 4px;">R. Itinguçu, 370</strong>
+            <span style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">Vila Ré / Patriarca</span>
+            <a href="https://www.google.com/maps/place/Panificadora+e+Confeitaria+Espacial/data=!4m7!3m6!1s0x94ce6098b2342a03:0x2b8d6c505377cecf!8m2!3d-23.5237563!4d-46.5113027!16s%2Fg%2F1v7tmhw8!19sChIJAyo0sphgzpQRz853U1BsjSs?authuser=0&hl=pt-BR&g_ep=EgoyMDI2MDkwMi4wIJJjKgBIAVAD&rclk=1" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.82rem;">
+              <span>Abrir no Google Maps &rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Avaliações Google Maps / Prova Social -->
+  <section class="reviews-section">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag" style="background: rgba(255,255,255,0.1); color: var(--gold-300); border-color: rgba(255,255,255,0.2);">Prova Social</span>
+        <h2 class="section-title">O Que Nossos Clientes Dizem</h2>
+        <p class="section-subtitle">Avaliação média de 4.3 estrelas com base em 1047 avaliações reais no Google Maps.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-avatar">M</div>
+            <div>
+              <div class="review-author">Cliente Frequente</div>
+              <div class="review-source">Avaliação no Google Maps ★★★★★</div>
+            </div>
+          </div>
+          <p class="review-text">"O pão da padaria Espacial é maravilhoso, crocante e delicioso"</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-avatar">C</div>
+            <div>
+              <div class="review-author">Carlos Eduardo</div>
+              <div class="review-source">Avaliação no Google Maps ★★★★★</div>
+            </div>
+          </div>
+          <p class="review-text">"O pão de fermentação natural é sem dúvidas o melhor do bairro. Casca super crocante e sabor de verdade. O café colonial aos fins de semana é parada obrigatória!"</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-avatar">A</div>
+            <div>
+              <div class="review-author">Ana Beatriz</div>
+              <div class="review-source">Avaliação no Google Maps ★★★★★</div>
+            </div>
+          </div>
+          <p class="review-text">"Encomendei o kit festa e o bolo de aniversário para o aniversário da minha filha. Todos os convidados elogiaram os salgados e o atendimento pontual. Super recomendo!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner Final -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Pronto para saborear o verdadeiro pão artesanal?</h2>
+      <p>Faça seu pedido diretamente pelo WhatsApp ou encomende para o seu evento particular ou corporativo.</p>
+      <a href="https://wa.me/5511987654321?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20/%20encomenda%20na%20Panificadora%20e%20Confeitaria%20Espacial." target="_blank" rel="noopener" class="btn btn-whatsapp" style="font-size: 1.05rem; padding: 16px 36px;">
+        <span>Fazer Pedido / Encomenda no WhatsApp</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Panificadora e Confeitaria Espacial</h4>
+          <p style="margin-bottom: 12px; line-height: 1.6;">
+            Panificadora artesanal de referência em Vila Ré / Patriarca. Pães de fermentação natural, café colonial, confeitaria fina e kits corporativos.
+          </p>
+          <p style="color: rgba(255,255,255,0.85);">
+            R. Itinguçu, 370 &bull; (11) 98765-4321
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#fermentacao">Pães de Fermentação Natural</a></li>
+            <li><a href="#cafe-colonial">Café da Manhã Colonial</a></li>
+            <li><a href="#encomendas">Encomendas de Bolos</a></li>
+            <li><a href="#kit-festa">Kit Festa Corporativo</a></li>
+            <li><a href="#horarios">Horários & Local</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Atendimento</h4>
+          <p style="margin-bottom: 10px;">Atendimento no balcão e encomendas com entrega agendada:</p>
+          <a href="https://wa.me/5511987654321?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20/%20encomenda%20na%20Panificadora%20e%20Confeitaria%20Espacial." target="_blank" rel="noopener" class="btn btn-gold" style="padding: 8px 16px; font-size: 0.8rem; width: 100%;">
+            <span>Falar no WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Panificadora e Confeitaria Espacial. Todos os direitos reservados.
+        </div>
+        <div>
+          Plataforma desenvolvida por <a href="https://santini.digital" class="footer-santini" target="_blank" rel="noopener">Santini Digital</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botão Flutuante de WhatsApp -->
+  <a href="https://wa.me/5511987654321?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20/%20encomenda%20na%20Panificadora%20e%20Confeitaria%20Espacial." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Fazer Pedido pelo WhatsApp">
+    <div class="whatsapp-icon">💬</div>
+    <span class="text">Fazer Pedido / Encomenda</span>
+  </a>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    function toggleMenu() {
+      const navMenu = document.getElementById('navMenu');
+      navMenu.classList.toggle('active');
+    }
+
+    // Close menu when clicking links
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navMenu').classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>

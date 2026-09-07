@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitrine de Sites de Padarias | Santini Digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0D0907;
+            --surface: #17120F;
+            --surface-2: #231B15;
+            --border: #35261D;
+            --gold: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-hover: #C59B27;
+            --text-main: #FFFFFF;
+            --text-muted: #B8A89A;
+            --accent-green: #25D366;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body {
+            background: var(--bg);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: radial-gradient(circle at 50% 0%, #2E1F16 0%, #0D0907 80%);
+            border-bottom: 1px solid var(--border);
+            padding: 50px 20px 40px;
+            text-align: center;
+        }
+        .brand-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: #FFF;
+            margin-bottom: 12px;
+        }
+        h1 span {
+            background: linear-gradient(135deg, #FFF, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        .search-box-wrap {
+            max-width: 520px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .search-box-wrap input {
+            width: 100%;
+            padding: 14px 20px 14px 44px;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: #FFF;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+        .search-box-wrap input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 25px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .stats-item strong { color: var(--gold); }
+
+        main {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+            flex: 1;
+            width: 100%;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        .padaria-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .padaria-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+        }
+        .card-img-wrap {
+            position: relative;
+            height: 170px;
+            background: #000;
+            overflow: hidden;
+        }
+        .card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+            transition: transform 0.4s ease;
+        }
+        .padaria-card:hover .card-img-wrap img {
+            transform: scale(1.05);
+            opacity: 1;
+        }
+        .rating-badge {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            background: rgba(13, 9, 7, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--gold-light);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .card-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: #FFF;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+        .card-addr {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.4;
+        }
+        .subdomain-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 7px 12px;
+            border-radius: 8px;
+            margin-bottom: 18px;
+            font-size: 0.8rem;
+            color: var(--gold-light);
+            font-weight: 600;
+            word-break: break-all;
+        }
+        .subdomain-icon { font-size: 0.9rem; }
+        .card-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: auto;
+        }
+        .btn-preview {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 14px;
+            background: var(--gold);
+            color: #1A110B;
+            font-weight: 700;
+            font-size: 0.82rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .btn-preview:hover {
+            background: var(--gold-hover);
+            transform: translateY(-1px);
+        }
+        .btn-subdomain {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 14px;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.82rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .btn-subdomain:hover {
+            border-color: var(--gold);
+            color: #FFF;
+        }
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            background: var(--surface);
+        }
+        footer strong { color: var(--gold); }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand-badge">⚡ Santini Digital • Multi-Tenant Engine</div>
+        <h1>Vitrine de Landing Pages • <span>Padarias Artesanais</span></h1>
+        <p class="subtitle">Sites ultrarrápidos e responsivos prontos para deploy na Vercel com roteamento individual por subdomínio.</p>
+        
+        <div class="search-box-wrap">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" id="searchInput" placeholder="Buscar padaria ou subdomínio..." oninput="filterCards()">
+        </div>
+
+        <div class="stats-bar">
+            <div class="stats-item">Total de Landing Pages: <strong>57</strong></div>
+            <div class="stats-item">Domínio Base: <strong>santinidigital.com.br</strong></div>
+            <div class="stats-item">Status Vercel: <strong>Pronto para Deploy</strong></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="grid" id="padariasGrid">
+            
+    <div class="padaria-card" data-name="padaria melissa" data-slug="melissa">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn0sXn77VMSUlVJ7rPzJTKPhf9e9BbUxqAxRmHm1BZeMKpQPvDTYjkApCJYXeeJ_dF06i78k7-0bE95qAhGxhYmKMwSHKiit0Y08FHANFqgSiS1AFItOJW5-MyDRkHV0y_789YThwvBoeBn=w122-h92-k-no" alt="Padaria Melissa" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.1 (187 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Melissa</h3>
+            <p class="card-addr">📍 Praça Nelson Sales de Abreu, 147 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">melissa.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./melissa/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://melissa.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="internacional paes e doces" data-slug="internacional">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkW-lSGZfKhPxTcUwXYnuF3GmS1RwwzDWmKW9osC2niw6qYGQGiBBQE5-EdLURZVtnXMOpri1jGPpX4aweZd7mcf1bDGqHLB-62Ew8JoSey86eK_NSk8kzL4xEkOG2uTyl8OtKv=w80-h106-k-no" alt="Internacional Paes e Doces" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.2 (651 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Internacional Paes e Doces</h3>
+            <p class="card-addr">📍 Praça Engenheiro Ribeiro Viegas, 9 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">internacional.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./internacional/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://internacional.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria giselle" data-slug="giselle">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl1373ihUhyl1GW6kATgSiwK3AFgebQB23o2GkrIGjbnN_vvyeDqGwR9Ck972GAiGGmltLku9UnJy1aqaKve6oCmDH1MfcPYqZ3rRlRT9ORZRQUQLCkz0GzCqtHI6owUy_xco2L=w122-h92-k-no" alt="Padaria Giselle" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.4 (970 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Giselle</h3>
+            <p class="card-addr">📍 R. Alto do Parnaíba, 345 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">giselle.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./giselle/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://giselle.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="panificadora santa mônica" data-slug="santamonica">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkT8WMxVdj36ZigcgmBf5dvaWAodPYLkpXNbzscS2GTZIE2chB5fLTXrCWsz4KnGElRnMMMqUZbnhakksQQU9svTGPzSblBASkaf3FYBasReH5Sd_gdmvBGEM-qbyq8OlbaoAqm=w147-h92-k-no" alt="Panificadora Santa Mônica" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.5 (51 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Panificadora Santa Mônica</h3>
+            <p class="card-addr">📍 R. Joaquim Marra, 2132 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">santamonica.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./santamonica/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://santamonica.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria mix" data-slug="mix">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmRu4pOw6-54MFdaxuKZOP8jIetqeSVky34pkMERCbgzjauK7PpSWtHkA955cA2B-WqeTQyxPL--J_Ak4Oqk47tUWdT4Hsq0skdkrswJP_kilDJdVptpITcOMCK58oDQHqLeVNgoQ=w80-h106-k-no" alt="Padaria Mix" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.4 (1025 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Mix</h3>
+            <p class="card-addr">📍 R. Alto do Parnaíba, 364 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">mix.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./mix/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://mix.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="pães e doces beth mania - são francisco" data-slug="bethmania">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmPpUJ9pVOw8QnH3zAHZH4jogcikqi-xI_DOHCBbE0X9WyHHOiXC4_yPF_fjKvxbBqocjUjj0zYp6jNCkOkr5_rHaIKmpz2xyZSX9HtknxyfvOT1ZrDwbMo7BhT31kuXnj6P0c6Wg=w122-h92-k-no" alt="Pães e Doces Beth Mania - São Francisco" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.3 (1466 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Pães e Doces Beth Mania - São Francisco</h3>
+            <p class="card-addr">📍 Praça Pôrto Ferreira, 2 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">bethmania.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./bethmania/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://bethmania.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria imperial pães e doces" data-slug="imperial">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkIMbfllMxf73KgCy69XVarhA10Rq_fTaV25vn6Hbsz8Yg5zDO4wq6o01RqXIjC5_QPE-KNkuRhRZlvWicN-jdeCqZAkCEoQ04CCQ3mh5dgo9aLG1m3ZuFmNFqOoiFi1kalTg6Z=w92-h92-k-no" alt="Padaria Imperial Pães e Doces" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.5 (1855 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Imperial Pães e Doces</h3>
+            <p class="card-addr">📍 03533-000, Av. Waldemar Carlos Pereira, 824 • Vila Matilde / Dalila</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">imperial.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./imperial/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://imperial.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="panificadora e confeitaria jardim samara" data-slug="jardimsamara">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmY4R5srT8WpvWW0dx-02CmO9ZAUZdAgWsPUPLePyj5wMZeOuuRM50qQh2zJ7YURQojr-dcHLlfDkNc2VYETKRCLkXcjg-F-X5LE-v5L-2X5ZR-Xyf8Zovdg7JIHPt-ifZXShrlnA=w80-h142-k-no" alt="Panificadora e Confeitaria Jardim Samara" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.1 (733 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Panificadora e Confeitaria Jardim Samara</h3>
+            <p class="card-addr">📍 Av. Prof. Xavier de Lima, 679 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">jardimsamara.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./jardimsamara/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://jardimsamara.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="o fidalgo" data-slug="ofidalgo">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkAsyULV_XejwhwscCkp7W3VCFz6bexsHbWbBYNuTZUdiCyxLQmKIRHdmy092ELZ2sZ9JeMEyBZ_HVusCE_dv-WpLhcW8ULGMbzH3jvlrsGPZMeafXFrZ9xABW7IKgyn2uxoo7IYQ=w163-h92-k-no" alt="O Fidalgo" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.5 (1611 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">O Fidalgo</h3>
+            <p class="card-addr">📍 Localizado em: Forneria Me Fala, Av. Paraguassu Paulista, 62 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">ofidalgo.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./ofidalgo/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://ofidalgo.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria nova granada" data-slug="padaria-nova-granada">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmbvQrez_EnoItIKl57CX_ZsSURM6uLpr3Yme4CXuuT3iVSfzBRrEYgY8AsOxuX4oZuoUbwKMVImuS10Oerp7IAirvo0fzcp4-375zu7tW-KtzhrDgumBXnKFQTD3TzmqSG-Wc=w122-h92-k-no" alt="Padaria Nova Granada" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.5 (8420 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Nova Granada</h3>
+            <p class="card-addr">📍 R. Itinguçu, 85 • Vila Ré / Patriarca</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">padaria-nova-granada.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./padaria-nova-granada/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://padaria-nova-granada.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria flor do bairro" data-slug="flordobairro">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnZ2G8RGwIke8l5126zlKL1zmv1mcjuiSecfIGCzPgBl2yvfHKiU87gvRCz46evFqPjESpMdXs0Ei4D65ecxW2UBJkXZC6uNvhppa3bNZ1SGOJ-if95g-QnibUHtSUKynnRhcnV=w122-h92-k-no" alt="Padaria Flor do Bairro" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.1 (927 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Flor do Bairro</h3>
+            <p class="card-addr">📍 Av. Waldemar Carlos Pereira, 1472 • Vila Matilde / Dalila</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">flordobairro.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./flordobairro/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://flordobairro.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="arte e pão da vila ré" data-slug="arteepao">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmDudOEERGf6JfJ2AklKUjkuVOOA-Ygs5_NIM6V2j9uzsPXnN8KiR6dXrU0DEUn89E7FdqAB-8mxWncgqbQara9Ln9hIkDPTG9mn8D2y1ahhMWUIrRdtj7TIExj6BulWN5NpFMe=w163-h92-k-no" alt="Arte e Pão da Vila Ré" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.3 (354 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Arte e Pão da Vila Ré</h3>
+            <p class="card-addr">📍 R. Choneco, 115 • Vila Ré / Patriarca</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">arteepao.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./arteepao/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://arteepao.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria e pizzaria okinawa" data-slug="okinawa">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk7Zx1aczUBfzIpfEGm3PRwo05gPw9ghF8PkZyXrL84mnEe1IZGlWyCaun1tG7bdFor857XHYJz6RGm4z1lCShz8zQ8r0uCNrFHEp9MzGuAK-hmiZJxWDjNBj50hCt5LJn-9vqVaQ=w80-h142-k-no" alt="Padaria e Pizzaria Okinawa" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.3 (4126 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria e Pizzaria Okinawa</h3>
+            <p class="card-addr">📍 Av. Waldemar Carlos Pereira, 524 - Sl 03 • Vila Matilde / Dalila</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">okinawa.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./okinawa/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://okinawa.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="panificadora flor de lirio" data-slug="flordelirio">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnVp6kFA0YVqvavDJta47p32GuS-KfBck5UB4Po4dpbneMMZ7JrTtuUt8_LcGB8BKvlMDLcfk2LDZB48XEdvZQDw-LHaEsWgGTBNj4fbZXgTlZ9C6fq3L_m36S6GnzH2dfPf1o=w163-h92-k-no" alt="Panificadora Flor De Lirio" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.4 (316 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Panificadora Flor De Lirio</h3>
+            <p class="card-addr">📍 Av. Sousa Bandeira, 584 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">flordelirio.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./flordelirio/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://flordelirio.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria ápice" data-slug="apice">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkVep9gRMSCiyLU8DY5DuucajE98z5pIRUHOa0PNYw2PbI1IVv5F1AmLCP3jhmT0yplsIj5QliqgpdKU5wPHUGelio9L5Z4MZ9n_SUiV74sW6ZY7bEfq7ODfQ3uv995kj9JS9XohFkKJWIY=w204-h92-k-no" alt="Padaria Ápice" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.4 (51 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Ápice</h3>
+            <p class="card-addr">📍 R. Joaquim Marra, 1251 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">apice.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./apice/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://apice.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="panificadora jandaia do sul" data-slug="jandaia">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlzViw8pf0P9aKcsGiENVogfXcSJ_HLSwHZTobkPZuf-HA_1jGDMRkStia7YnTXl78nqxMyhFZAuRTCt3rTRTxdtc3jm10Hj0GyWqSOGUqY0yBkfxktwk9zXgwXeiKSoaYe9Gev=w80-h142-k-no" alt="Panificadora Jandaia do Sul" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 3.9 (88 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Panificadora Jandaia do Sul</h3>
+            <p class="card-addr">📍 R. Jandáia do Sul, 363 - murro ,0 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">jandaia.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./jandaia/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://jandaia.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="requinte centro gastronômico" data-slug="requinte-centro-gastronomico">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnOlM_Zna-T7bc3Zd3u8s-Zb_R2J0JgfNwWCFTqQ3L0oJcNbLt8te0LJpvly21CqCrCeR-z-5fVDayhLrI9U0SkB1T_ZkJQqWPoLJQhi1B7Nnyi2rKYkgPKFbHhZD8sj1inEYjy3A=w122-h92-k-no" alt="Requinte Centro Gastronômico" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.6 (14936 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Requinte Centro Gastronômico</h3>
+            <p class="card-addr">📍 Av. Amador Bueno da Veiga, 1312 • Penha / Vila Esperança</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">requinte-centro-gastronomico.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./requinte-centro-gastronomico/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://requinte-centro-gastronomico.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="panificadora eliana" data-slug="eliana">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl4IrFUTlT_KAvDbsydKgNEZM0f-DJAiIisl_TgKQkYOBNfPl74lIIyjmz1dNIPaXtZTsCYezUBnUiQE6cfjXkW0PggKcTn8RBMWi92KS-1Wyex2MOtlQGYoXRLBO-Y_R0f-kPm=w204-h92-k-no" alt="Panificadora Eliana" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.0 (602 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Panificadora Eliana</h3>
+            <p class="card-addr">📍 R. Dona Matilde, 404 • Vila Matilde / Dalila</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">eliana.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./eliana/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://eliana.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria vitória" data-slug="vitoria">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWm3OneONh05rNFg0eeH7WSxmN3F5Jl1e-SAyQgixFR1mQDvg77t8Nfe2oCBMS4lK3kPgJR4EiZJcdnNVL37kbJkh4X6BXAxO626nzg4HMKc4hckVN6Xz2kXv1uHjL5v13_kvH3b=w122-h92-k-no" alt="Padaria Vitória" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.3 (410 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Vitória</h3>
+            <p class="card-addr">📍 R. Nova Serrana, 8 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">vitoria.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./vitoria/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://vitoria.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="panificadora e confeitaria espacial" data-slug="espacial">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlvmNb-Ma1K7sJWKtTjieOQx4PGpgs5eYAfpkZK6uehDg_FBQAV0FLKHFCQRqdVjz2eGLAEtouya8P6mJba2yttiFdcW3XQy2DsxoBRnd2L2cFnNte69C9VZek6iofx0XvLYOe-=w163-h92-k-no" alt="Panificadora e Confeitaria Espacial" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.3 (1047 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Panificadora e Confeitaria Espacial</h3>
+            <p class="card-addr">📍 R. Itinguçu, 370 • Vila Ré / Patriarca</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">espacial.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./espacial/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://espacial.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="bella massa" data-slug="bellamassa">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnLXlLCrbNYYUiEDc_c-V6Y1kSgMJiOqeiL98ZKdnJiFQmbcxjY-AtGhU41nWRuvMB9oWsO5-zwHlRZy1YuPO8AvzAZcn_qcigOxjus4-M5NpJm5fydC2_q87i8M1Iphj1yq9RUYQ=w80-h92-p-k-no" alt="Bella Massa" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.7 (46 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Bella Massa</h3>
+            <p class="card-addr">📍 584 Rua Baltazar de Morais • Zona Norte / Vila Maria</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">bellamassa.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./bellamassa/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://bellamassa.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria e confeitaria d'fofinhos" data-slug="dfofinhos">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnh4kUTvJTzFqa90aBRF63vtYSEjCgU-HQVcYGcYAn6YCeEJbo3Phjt0T0PT3LP1M2rAil7KeWFTXFXjA6jahuxwzRj2qiYvL0bMkmi96TZSDWlr6xY7E18ohNKU-Xk34oCgDlb=w122-h92-k-no" alt="Padaria E Confeitaria D'fofinhos" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.4 (542 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria E Confeitaria D'fofinhos</h3>
+            <p class="card-addr">📍 Av. Itaquera, 714 • Itaquera / Artur Alvim</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">dfofinhos.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./dfofinhos/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://dfofinhos.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="panificadora nova esperança" data-slug="novaesperanca">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlObQGN6E2pG3F-P_MEXFGHKNxnTPiwTWH7aQKzuAd37mJN8f4NFoQ8UoufRI8fJDB1NtQkHgexfOiAuEXw_9pqzj3zQrmISbjA-Iv1x9uHMnc7IP9a7AjqCuLb0r6GK8cbGfSS=w163-h92-k-no" alt="Panificadora Nova Esperança" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.3 (783 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Panificadora Nova Esperança</h3>
+            <p class="card-addr">📍 Av. Dr. Pereira Vergueiro, 440 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">novaesperanca.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./novaesperanca/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://novaesperanca.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria brilhante" data-slug="brilhante">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnRJL5OeDnB4UruNclqIi0yJT8aI-QxgO5oVKAQLNfTIEwxV9NowdiVCAtVXrpgqjgEYDIsuvwjkfWmeqyyJzrmqJPo00qvtL7uD-TEvWTtvMSTZMGDNDHCSk_5yXf2j9vcI3jNjw=w163-h92-k-no" alt="Padaria Brilhante" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.3 (1443 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Brilhante</h3>
+            <p class="card-addr">📍 Av. Amador Bueno da Veiga, 2430 • Penha / Vila Esperança</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">brilhante.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./brilhante/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://brilhante.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria delícia" data-slug="delicia">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmlnnl-mVnZvd0XaKDAMkDrwhAa_MR03RENMvzNxaWOxVSLy1nOxtNcKFdF6p98Z-qb23EdNCXBQY8Ib9dl_iNGlrQfIG6giX2JPbr-yW-upY2IdM2_MOMKTuMjkzA6yXkz5ur2=w122-h92-k-no" alt="Padaria Delícia" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.5 (745 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Delícia</h3>
+            <p class="card-addr">📍 R. Impata, 765 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">delicia.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./delicia/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://delicia.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria saint louis" data-slug="saintlouis">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnjxc3gVTKUPILs8-yCet9VQrK9DVzPKfhMC-v3CUaQUvqwY8ZxDTLBkKpu_GJcvcYhUNHIo5JcL4AOtFMDcaBTmCmQOySwL6DkbB5GiINfYBmoQsOuqZ28JKetbvQgwKc7FsY=w122-h92-k-no" alt="Padaria Saint Louis" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.5 (388 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Saint Louis</h3>
+            <p class="card-addr">📍 R. Aurélio Pinheiro, 142 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">saintlouis.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./saintlouis/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://saintlouis.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria porta del rei" data-slug="portadelrei">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnQu1p-Obiqs8jsFEblcZx7FIqCmztMOEtt0vp3vKHyVsd5jsL0x1omCVcdGRX3kObp9DwUB6ggF89pZVSALJSo9YC1ALvhzTLsl785OTqTY5YJkKriG_iBtSfrKx9Z1h9ZCVao=w80-h106-k-no" alt="Padaria Porta Del Rei" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.2 (1246 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Porta Del Rei</h3>
+            <p class="card-addr">📍 R. Cel. Pedro Dias de Campos, 494 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">portadelrei.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./portadelrei/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://portadelrei.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria mel na boca" data-slug="melnaboca">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlGG5t6S1HA6fv9xGq-ValjYj6iyzIg7riuqqnCokNK24an-mv2QJmjIGFroFOjZVEDwLnPVt6KHsAn5f_q2T116g06p8wEHyULk9LTQpZm9MbphbuFT0P28j59SO8Jq797CQLE7Q=w163-h92-k-no" alt="Padaria Mel na Boca" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.3 (1971 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Mel na Boca</h3>
+            <p class="card-addr">📍 Av. São Miguel, 625 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">melnaboca.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./melnaboca/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://melnaboca.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="panificadora estrela guia" data-slug="estrelaguia">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn5OMNBiAdZL5bcnkIm7o7yOSt51V-38FqV1Sm5013cRgm2eIUSUAdU3O9J60aNh-BV82lQVHJpdgkQitdjLfcPSap7RMuK3zMWeJFeyMh1Ssnt4B1LIgh3tm62VQZXC00diVNzXA=w80-h106-k-no" alt="Panificadora Estrela Guia" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.2 (931 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Panificadora Estrela Guia</h3>
+            <p class="card-addr">📍 R. Itinguçu, 1903 • Vila Ré / Patriarca</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">estrelaguia.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./estrelaguia/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://estrelaguia.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria e doces - jd. marina" data-slug="jdmarina">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnqclslSuvFNg7AqioRKyNXvTDOE_zFzVqBG_thNhDGCdP10ykfrWzCHpLBOz5fXsoxs6H0TUje6mxDrBbi0B4SPSKY6gkFKf6BgcegWYjfwmwJ3xtVxL5-8MlMcokA7aXL4O2b=w163-h92-k-no" alt="Padaria e Doces - Jd. Marina" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.2 (190 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria e Doces - Jd. Marina</h3>
+            <p class="card-addr">📍 Av. Itaquera, 2447 • Itaquera / Artur Alvim</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">jdmarina.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./jdmarina/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://jdmarina.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria rosa do porto" data-slug="rosadoporto">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmmYqacbaWHz6xT-hnwA2NicJKI65YP9BbS2zsBvvJYxZGinlQr71AY5vThWtZb5P5c-fMHFMOlpETLD2JAi6LKKm9Fh5hOQXJ-pz2I4m2RC80flwLxvG3hROiHjOBZjPRbyvNZ=w163-h92-k-no" alt="Padaria Rosa Do Porto" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.4 (949 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Rosa Do Porto</h3>
+            <p class="card-addr">📍 R. Porto das Flores, 100 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">rosadoporto.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./rosadoporto/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://rosadoporto.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="casa são francisco padaria" data-slug="casasaofrancisco">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlwtl7xHTmTEo0pgG0GOEnx1eFOHa_2olx3tf0R06TWnP63wa9Aga7U0Am-xSHlCPb6ZNYweTD2ZACRgv2ejfKXq7AE_Fb9tuRWbc5Fh8vxDnKKRByl-zcDLVgV2zDtRdo15Akk=w204-h92-k-no" alt="Casa São Francisco Padaria" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.2 (831 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Casa São Francisco Padaria</h3>
+            <p class="card-addr">📍 Av. Águia de Haia, 142 • Itaquera / Artur Alvim</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">casasaofrancisco.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./casasaofrancisco/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://casasaofrancisco.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria canto do buriti" data-slug="cantodoburiti">
+        <div class="card-img-wrap">
+            <img src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=615tFwf66yZTPK2quh0IXQ&cb_client=search.gws-prod.gps&w=80&h=92&yaw=37.374207&pitch=0&thumbfov=100" alt="Padaria Canto do Buriti" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 5.0 (3 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Canto do Buriti</h3>
+            <p class="card-addr">📍 R. Canto do Buriti, 25b • Vila Ré / Patriarca</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">cantodoburiti.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./cantodoburiti/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://cantodoburiti.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria rainha da patriarca | pães e doces" data-slug="padaria-rainha-da-patriarca-paes-e-doces">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlSYxjtMEAMn7gJxdgMvZyuddqIJsNE1EXpL4_n2MjO4FLyjHjCKKAhZZKvyJfy19XQsPXs03r3z_TfgK8wwzwFgfHm8YEJ52d_keMcgw3PaakwIhjjQqufdPYp9PurT5fuOqxtXrkkB2t1=w132-h92-k-no" alt="Padaria Rainha da Patriarca | Pães e Doces" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 5.0 (1 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Rainha da Patriarca | Pães e Doces</h3>
+            <p class="card-addr">📍 Rua Poxoréu, 215 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">padaria-rainha-da-patriarca-paes-e-doces.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./padaria-rainha-da-patriarca-paes-e-doces/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://padaria-rainha-da-patriarca-paes-e-doces.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria" data-slug="padariazl">
+        <div class="card-img-wrap">
+            <img src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=lez-aZSVs2N3BPXODlgP2A&cb_client=search.gws-prod.gps&w=80&h=92&yaw=44.014076&pitch=0&thumbfov=100" alt="Padaria" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 0.0 (0 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria</h3>
+            <p class="card-addr">📍 Av. Dr. Bernardino Brito Fonseca de Carvalho, 1885 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">padariazl.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./padariazl/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://padariazl.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria principe davi" data-slug="principedavi">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkgXgN9jjq4vRTvSmxSIsU9vw5JRMziqYAZA1MQQDS3_F7bDabIsAh-ENeNqdDloXUXKYen6StZinPXj0QxzUhiQQRJBA43pOkteQV-9iopgLIV2pUGiU2w0mufKrF7dw0jh9s5=w122-h92-k-no" alt="Padaria Principe Davi" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.5 (44 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Principe Davi</h3>
+            <p class="card-addr">📍 R. Palmeira Laca, 193 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">principedavi.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./principedavi/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://principedavi.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="panificadora nova imperador do trigo" data-slug="novaimperador">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnApXYCNM61d5OE-0dRrSJr_G4xlR5nmjOgQ7QK4tjNuiTzXs813EzReReqLGkYgxO9WFP4dGz77USu8R9x5L1I08zm3Lk6D1c8_x_JUQAal30cK7SeFEBSffpCYZ3RF-ul7gwC4A=w163-h92-k-no" alt="Panificadora Nova Imperador do Trigo" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.3 (1399 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Panificadora Nova Imperador do Trigo</h3>
+            <p class="card-addr">📍 Estr. de Mogi das Cruzes, 402 • Ponte Rasa / Ermelino</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">novaimperador.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./novaimperador/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://novaimperador.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria rainha do maringá" data-slug="rainhadomaringa">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkkm7g5v5PYuYqCB5gRz28TgqLm9wxOVK6FyFtc20ZvMQsJ10Hl2MmS059whVKbAWx3eXTbjz1VjtAtpt5sC88TlOOSofSPbdPiW51ymw1XGD1HHK5RMHwAMnMZKz5GwCtC3KxqGS4fsAch=w122-h92-k-no" alt="Padaria rainha do Maringá" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 3.2 (6 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria rainha do Maringá</h3>
+            <p class="card-addr">📍 R. Nova Serrana, 8 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">rainhadomaringa.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./rainhadomaringa/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://rainhadomaringa.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="panificadora são pedro" data-slug="saopedro">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlchCvkrECu6FTuvjkvevKnPJg3TEG7cthxjzqEKlUmrivlj6Hm3dOgw7GfOsS2gki-jkb2S0-OSk-_ZEbjVG7HhGlvqdKanbfT5-32JBobmT-4lSKK-ECbIt-XuaqIFzdxXp3b5A=w80-h106-k-no" alt="Panificadora São Pedro" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.4 (1543 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Panificadora São Pedro</h3>
+            <p class="card-addr">📍 Rua Frei Mont'Alverne, 446 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">saopedro.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./saopedro/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://saopedro.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="ponto do pão" data-slug="pontodopao">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWntHhNGvw14r9DyaB-R2RYq-1HFWq8xXDOPcaehuI_yrediOo0RCxB84A1TkHKX9fjZOWS1SG0bGLUbhRCCtSQGPhzJjDOfYc2IDujy4h1cxQQ7pTIAAmNDLmVbyxxqdUcJmx2D_Q=w163-h92-k-no" alt="Ponto do Pão" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.5 (1388 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Ponto do Pão</h3>
+            <p class="card-addr">📍 Rua Max Planck, 500 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">pontodopao.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./pontodopao/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://pontodopao.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="panificadora artpão" data-slug="artpao">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmzSYuvT7HTFQ10bCTsNSUyC4vsAdHWl0IdG-N78T2P80KCc5wJm3NorFJmy17lMUXp-qdmor8v1z6Se-M0G7vJ78A97SmkM6xffD9CSDeGqZNCT8eiWQSg8rgOYt_QHc8f1lAEow=w80-h106-k-no" alt="Panificadora ArtPão" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.1 (442 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Panificadora ArtPão</h3>
+            <p class="card-addr">📍 R. Maria Carlota, 955 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">artpao.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./artpao/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://artpao.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="confeitaria borges vila industrial" data-slug="confeitariaborges">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk5iVhm_-3XQ6XlqRJw3KWz19DQqWxzYwIB6my_FUrBv1Ur1LZBEaobLbDCtDJ8e-qLaneg7iF6ZNn80A7ThdyJ3O61GZA9Mmd01F9VsCf_0AtpHJVgDyC6Hbmyo19SV-IoGHPvzStYqIbq=w80-h92-p-k-no" alt="Confeitaria Borges Vila Industrial" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.9 (57 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Confeitaria Borges Vila Industrial</h3>
+            <p class="card-addr">📍 4159 Avenida do Oratório • Vila Prudente / Sapopemba</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">confeitariaborges.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./confeitariaborges/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://confeitariaborges.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="bella massa" data-slug="bellamassa-2">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnLXlLCrbNYYUiEDc_c-V6Y1kSgMJiOqeiL98ZKdnJiFQmbcxjY-AtGhU41nWRuvMB9oWsO5-zwHlRZy1YuPO8AvzAZcn_qcigOxjus4-M5NpJm5fydC2_q87i8M1Iphj1yq9RUYQ=w80-h92-p-k-no" alt="Bella Massa" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.7 (46 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Bella Massa</h3>
+            <p class="card-addr">📍 584 Rua Baltazar de Morais • Zona Norte / Vila Maria</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">bellamassa-2.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./bellamassa-2/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://bellamassa-2.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria nova astral" data-slug="novaastral">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk5Pp1Aqj4-CKfIZxL1gscNmjl7N6pYkCDERnfiCCoVwWp9mDcxsgiALdYsW_pqCPlBvUUQvc_4Ky5KhbCx0PU8vTFlDXIdMiMS7QdH1Z_dPczemL-JE8yXgIb034bv_HvyVNwwPCOcop85=w80-h142-k-no" alt="Padaria Nova Astral" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.1 (47 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Nova Astral</h3>
+            <p class="card-addr">📍 R. Itinguçu, 2095 • Vila Ré / Patriarca</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">novaastral.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./novaastral/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://novaastral.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria alzira" data-slug="alzira">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk2tHi6zprre-5s1n1ndBwQFziSFV-WDD7Q_N045hzZ3q2UO83ulWyWvc6ZKoE0oRzXGh1tXJmWCV3k1mPVLprPscKRLxk48mK9JCnK-QX0zG9ViuK6POxbnFCi10w_8D3OGzcD=w163-h92-k-no" alt="Padaria Alzira" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.2 (587 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Alzira</h3>
+            <p class="card-addr">📍 R. Tamaindé, 820 • Penha / Vila Esperança</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">alzira.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./alzira/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://alzira.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria santa maria" data-slug="santamaria">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlsy1_liDvaRuB8yOomfRnEwl472xHPJPc_u1DxrfZr4Se6QbqMMESm7gBc5sQjGFtP8vXl_kTJcaRPXppWfStgM7K5pbfLbHpwQV-IsuQsZiWXAknPvnEVLGvHDHyUU-GlTBvL=w163-h92-k-no" alt="Padaria Santa Maria" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.3 (831 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Santa Maria</h3>
+            <p class="card-addr">📍 São Paulo - SP • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">santamaria.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./santamaria/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://santamaria.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria nova manchester" data-slug="novamanchester">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWla2hwlNhgZqeZD5YiImXM2rCHG7bXzMesD7el7B59ef8bSrCJj82mfnTmG4OfRVgX6BdKdONku1zOvxeDcnZT2CKUH_6EZLICHUcLWbUx9wGg-bZVQSNm0vl5D4_-NUfgUBsS7=w204-h92-k-no" alt="Padaria Nova Manchester" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.3 (1646 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Nova Manchester</h3>
+            <p class="card-addr">📍 R. Juno, 362 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">novamanchester.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./novamanchester/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://novamanchester.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria tradição" data-slug="tradicao">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn5tjalCCTT7I10ZWHC-PlQtJU1p-EbczlO3mVjdLvvL6jePf5F97JzhrCXbArPLKxWuugDGKjf-9Eit0I8rV7XRVmIYO3UeWE9lsUMOyjVAViVNRKTkR7WdLj0McQQYocppQAS=w122-h92-k-no" alt="Padaria Tradição" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.4 (1099 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Tradição</h3>
+            <p class="card-addr">📍 Av. Esperantina, 407 • Ponte Rasa / Ermelino</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">tradicao.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./tradicao/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://tradicao.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria pão d' ouro" data-slug="paodouro">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnfALrLnAaVncOtgAGE3sZNwD_77OBNAQwUjIaug9HMbpoMC_BqS1oleyCYm7y1qjtiSMVWaQy7aeO0SVrlI9EVkfHZ0u3jR5TRD1OG_E2BR9GsMxUwbH_qixU81i8Oukl-WfIz6A=w163-h92-k-no" alt="Padaria Pão D' Ouro" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.4 (1728 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Pão D' Ouro</h3>
+            <p class="card-addr">📍 Estr. de Mogi das Cruzes, 460 • Ponte Rasa / Ermelino</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">paodouro.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./paodouro/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://paodouro.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria sabor do trigo" data-slug="padaria-sabor-do-trigo">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkRqHHb8Omd-M80w_8GWGqcD8Ex85KzaMooMqxnFPUD6jgmmuyHWo3BFGdIAsp8i4mSdCiNG1R4K-cnxGi3v5ao_XpUKs375Pbzs723n_KYft9SzFNXwesSItf5FDoMPQnaZV9g=w80-h106-k-no" alt="Padaria Sabor do Trigo" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.3 (2404 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Sabor do Trigo</h3>
+            <p class="card-addr">📍 Av. Conselheiro Carrão, 1830 • Carrão / Tatuapé</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">padaria-sabor-do-trigo.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./padaria-sabor-do-trigo/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://padaria-sabor-do-trigo.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="panificadora viena fama" data-slug="vienafama">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlyM5aTvgGci2kYafgjtMqHaC9dC6pWZh4geD9bWZaSdssg2ChKDxKJUK2pSZUEjhpPe39Rmqt6asJSCLTm937KPsENOZbm0I_a2pdaBilT9anjm4kxpQodxfCLi5-jjf7j30HXWA=w80-h106-k-no" alt="Panificadora Viena Fama" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.5 (272 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Panificadora Viena Fama</h3>
+            <p class="card-addr">📍 Rua Edgar de Sousa, 816 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">vienafama.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./vienafama/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://vienafama.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria pizzaria & restaurante catarina" data-slug="catarina">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmgVS5E-0FZIOXMQy8-Bg0rbJ3ThWFovlSpmf351AINLIgaId324neKCWvUB_hLjzuyo-kv5YXqXsAJ2yxtk7CIXDjWAYWLDbUFHA56wZU6weASs7vzuQWo7mT0BAqKHzFZWJ3t0w=w80-h106-k-no" alt="Padaria Pizzaria & Restaurante Catarina" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.3 (2158 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Pizzaria & Restaurante Catarina</h3>
+            <p class="card-addr">📍 R. Piraquara, 45 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">catarina.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./catarina/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://catarina.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="nova rio d'ouro" data-slug="novariodouro">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmXQw-pcY8AktvW3XiLIPxLXa3S_nmDB63NchaRPT3uKkpqHf4rg9wk2GtCEmTRgVc0thj0cdhHa5hb0h4urmGRCdiTyTfC5SVXkkiftnOYa55om9ygI8PPwV0Gc9dWiimxCJgU=w80-h106-k-no" alt="Nova Rio D'Ouro" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.2 (1677 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Nova Rio D'Ouro</h3>
+            <p class="card-addr">📍 Estr. de Mogi das Cruzes, 1570 • Ponte Rasa / Ermelino</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">novariodouro.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./novariodouro/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://novariodouro.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria das flores" data-slug="padariadasflores">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmWAi0UhL-NHgW1Am039ujL-SmQ_VYmMty2zS5TdsRnPbHABXfTIAgVPdOLkqFlU6GNH15empFTzMnSMmG_5mWuws2jFOvEFy1XMY4lhpTlwwcT0g3QFRhgiDFB45MdJHNjjjHh=w163-h92-k-no" alt="Padaria das Flores" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.1 (668 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria das Flores</h3>
+            <p class="card-addr">📍 Av. Jaime Torres, 1300 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">padariadasflores.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./padariadasflores/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://padariadasflores.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="ponto dos pães" data-slug="pontodospaes">
+        <div class="card-img-wrap">
+            <img src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=4TYcvG4VwBY5nG3WC-I7hQ&cb_client=search.gws-prod.gps&w=80&h=92&yaw=222.12212&pitch=0&thumbfov=100" alt="Ponto dos pães" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 5.0 (1 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Ponto dos pães</h3>
+            <p class="card-addr">📍 R. Buriti Alegre • Vila Ré / Patriarca</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">pontodospaes.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./pontodospaes/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://pontodospaes.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="padaria fantasia" data-slug="fantasia">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkj4SSUPjsn4dXX6hyfTrzwbMfw4E3Mxl4coK7broRgAZDCmashtPQCnkZu7LafeO65lY6GLvd7D_axv6SwrpooYJEyJKcBQDC6AFMNn21Ojpri06r3OTg6i1JWcC1dOJAzOenB=w80-h106-k-no" alt="Padaria Fantasia" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 3.8 (115 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Padaria Fantasia</h3>
+            <p class="card-addr">📍 Rua Tapaiúna, 70 • Zona Leste / SP</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">fantasia.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./fantasia/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://fantasia.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="padaria-card" data-name="panificadora olivetanos | casa de pães e doces" data-slug="panificadora-olivetanos-casa-de-paes-e-doces">
+        <div class="card-img-wrap">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkhq2UmJMMk8bknevFJEWK5hVXqLffBux0nO2ShW-jAQDsANttZH6E7WRzO2w5lgksCDmz3U33UIBwrZzKr5eIUdMdZKy2cMlKEhEn7m4BPDs54xZpjie_iOYoZPRr-KqHKKPHW=w122-h92-k-no" alt="Panificadora Olivetanos | Casa de Pães e Doces" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'">
+            <div class="rating-badge">★ 4.6 (3905 avaliações)</div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Panificadora Olivetanos | Casa de Pães e Doces</h3>
+            <p class="card-addr">📍 Av. Padres Olivetanos, 417 • Penha / Vila Esperança</p>
+            
+            <div class="subdomain-tag">
+                <span class="subdomain-icon">🌐</span>
+                <span class="subdomain-url">panificadora-olivetanos-casa-de-paes-e-doces.santinidigital.com.br</span>
+            </div>
+
+            <div class="card-actions">
+                <a href="./panificadora-olivetanos-casa-de-paes-e-doces/index.html" class="btn-preview" target="_blank" title="Abrir Landing Page">
+                    <span>Ver Site Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://panificadora-olivetanos-casa-de-paes-e-doces.santinidigital.com.br" class="btn-subdomain" target="_blank" title="Link em Produção">
+                    <span>Acessar Subdomínio</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+        </div>
+    </main>
+
+    <footer>
+        <p>Desenvolvido para o ecossistema comercial da <strong>Santini Digital</strong> • Estrutura otimizada para GitHub & Vercel</p>
+    </footer>
+
+    <script>
+        function filterCards() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.padaria-card');
+            let count = 0;
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name');
+                const slug = card.getAttribute('data-slug');
+                if (!query || name.includes(query) || slug.includes(query)) {
+                    card.style.display = 'flex';
+                    count++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
